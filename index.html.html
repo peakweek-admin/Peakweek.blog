@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Peak Week: Your weekly Sunday email with proven training, nutrition science, and lifting news – no fluff, all truth." />
+    <title>Peak Week | The Weekly News Bomb for Lifters</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg: #F5F5F5;
+        --fg: #1A1A1A;
+        --accent: #FF4500; 
+        --accent-gold: #FFD700;
+        --accent-dark: #E03E00;
+        --light-bg: #F5F5F5;
+        --light-text: #1A1A1A;
+        --dark-bg: #2A2A2A;
+        --dark-text: #FFFFFF;
+      }
+      body {
+        background-color: var(--light-bg);
+        color: var(--light-text);
+        font-family: 'Inter', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      .font-display {
+        font-family: 'Syne', sans-serif;
+        letter-spacing: -0.05em;
+        text-transform: uppercase;
+      }
+      .font-body {
+        font-family: 'Inter', sans-serif;
+      }
+      ::selection {
+        background-color: var(--accent);
+        color: #fff;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Animations */
+      .reveal-on-scroll {
+        opacity: 0;
+        transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .reveal-on-scroll.is-visible {
+        opacity: 1;
+        transform: none !important;
+      }
+      .slide-up { transform: translateY(30px); }
+      .pump { animation: pump 1.5s ease-in-out infinite; }
+      @keyframes pump {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+      }
+
+      .btn-power {
+        background: var(--accent);
+        color: var(--dark-text);
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        border: 2px solid var(--accent);
+      }
+      .btn-power:hover {
+        background: var(--accent-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px -5px rgba(255, 69, 0, 0.4);
+      }
+
+      .card-lift-hover {
+        transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .card-lift-hover:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 30px 60px -15px rgba(255, 69, 0, 0.2);
+        border-color: var(--accent-gold);
+      }
+
+      .loading-barbell {
+        border: 4px solid rgba(0,0,0,0.1);
+        border-top: 4px solid var(--accent);
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        animation: spin 1s linear infinite;
+        display: none;
+      }
+      @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+      .is-loading .loading-barbell { display: inline-block; }
+      .is-loading .btn-text { display: none; }
+
+      .logo-hover {
+        transition: transform 0.3s ease;
+      }
+      .logo-hover:hover {
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 px-6 md:px-12 py-4 flex justify-between items-center bg-transparent">
+      <a href="#" class="logo-hover">
+        <img src="https://i.postimg.cc/CMDp0c3t/peak-week-refined-v2-1-removebg-preview-(1).png" alt="Peak Week Logo" class="h-10 md:h-12 w-auto" />
+      </a>
+      <nav class="hidden md:flex gap-8 items-center">
+        <a href="#inside" class="font-body text-[10px] font-black uppercase tracking-[0.3em] text-neutral-500 hover:text-var(--light-text) transition-all">What's Inside</a>
+        <a href="#philosophy" class="font-body text-[10px] font-black uppercase tracking-[0.3em] text-neutral-500 hover:text-var(--light-text) transition-all">Our Edge</a>
+        <a href="#subscribe" class="bg-accent text-var(--dark-text) px-5 py-2 rounded-lg font-display font-bold text-xs shadow-lg hover:scale-105 transition-all btn-power">Get the Drop</a>
+      </nav>
+      <a href="#subscribe" class="md:hidden bg-accent text-var(--dark-text) px-4 py-1.5 rounded-lg font-display font-bold text-[10px] btn-power">Get the Drop</a>
+    </header>
+
+    <!-- Hero (Above the Fold) - Light Theme -->
+    <section class="pt-24 pb-12 md:pt-32 md:pb-20 px-6 md:px-12 relative flex flex-col justify-start min-h-[70vh] md:min-h-0 bg-var(--light-bg)">
+      <div class="max-w-6xl mx-auto w-full relative z-10 flex flex-col items-start text-left text-var(--light-text)">
+        <div class="reveal-on-scroll slide-up inline-flex items-center gap-2 bg-neutral-100 border border-neutral-200 px-3 py-1.5 rounded-full mb-6 shadow-sm">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-var(--light-text)"></span>
+          </span>
+          <span class="text-[8px] md:text-[9px] font-black uppercase tracking-[0.2em] text-neutral-600">Weekly Truth Drop • 12k+ Lifters Locked In</span>
+        </div>
+
+<h1 class="reveal-on-scroll slide-up font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[0.7] mb-4 max-w-4xl tracking-tighter uppercase italic">
+  Become the Most Informed Lifter in the Room.
+</h1>
+
+
+        <p class="reveal-on-scroll slide-up font-body text-base md:text-lg max-w-lg mb-8 leading-relaxed">
+          Peak Week is the weekly email that cuts through the BS—real training advice, nutrition that works, and all the lifting world drama worth knowing about. Without the freaking Jargon.
+        </p>
+
+        <div class="reveal-on-scroll slide-up w-full max-w-md">
+          <form id="hero-form" class="flex flex-col sm:flex-row gap-2 p-1 bg-white border-2 border-var(--light-text) rounded-xl shadow-xl focus-within:border-accent transition-all duration-300">
+            <input 
+              type="email" 
+              required
+              placeholder="Your email"
+              class="flex-grow px-4 py-3 text-base font-bold font-body focus:outline-none rounded-lg bg-transparent placeholder:text-neutral-400 text-var(--light-text) min-w-0"
+            />
+            <button 
+              type="submit"
+              class="bg-accent text-var(--dark-text) font-display font-black py-3 px-6 text-sm rounded-lg btn-power shadow-lg hover:scale-[1.02] active:scale-95 transition-all whitespace-nowrap flex items-center justify-center gap-2"
+            >
+              <span class="loading-barbell"></span>
+              <span class="btn-text">Get Peak Week</span>
+            </button>
+          </form>
+          <div class="mt-4 flex items-center gap-4 text-[8px] md:text-[9px] font-black uppercase tracking-[0.15em] text-neutral-600">
+             <span class="flex items-center gap-1.5"><div class="w-1 h-1 bg-accent rounded-full"></div> 100% Free. No spam ever.</span>
+          </div>
+          <div id="hero-success" class="hidden mt-4 bg-accent/20 border border-accent p-2 rounded-lg text-var(--light-text) font-black text-[10px] animate-pulse">YOU'RE IN. MASSIVE GAINS INCOMING.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: What This Is (Inside) - Dark Grey Theme -->
+    <section id="inside" class="py-24 md:py-32 bg-[#2A2A2A] text-white px-6 relative overflow-hidden">
+      <div class="max-w-6xl mx-auto relative z-10">
+        <div class="reveal-on-scroll slide-up text-left mb-16 md:mb-24 space-y-4 md:space-y-6">
+           <span class="text-[#1A1A1A] bg-accent px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.4em] rounded-full inline-block">
+             What This Is
+           </span>
+           <h2 class="font-display text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter uppercase italic leading-tight text-white">Every Week, You Get One Email.</h2>
+        </div>
+        
+        <div class="space-y-6 font-body text-base md:text-lg leading-relaxed text-neutral-200">
+          <p>It's got the training insights that'll actually improve your lifts. The nutrition science that isn't wrapped in fear-mongering or supplement ads. The industry news and controversies that are too good not to share.</p>
+          <p>It's the email your gym buddy would send if he actually read research papers instead of just TikTok form checks.</p>
+          <p>You're not getting a boring fitness lecture. You're getting the stuff that matters, explained like a human wrote it, with enough personality that you'll actually want to open it.</p>
+          <p>No 47-step morning routines. No pseudoscience about "toxins." No 6 minute abs.</p>
+          <p class="text-white font-bold text-xl">Just hardcore lifting.</p>
+        </div>
+
+        <!-- Logo watermark -->
+        <div class="mt-16 flex justify-center opacity-1">
+          <img src="https://i.postimg.cc/g25FSpPx/Peak-Week-White-invert-removebg-preview-(1).png" alt="Peak Week" class="h-20 md:h-22 w-auto grayscale" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Who This Is For (Philosophy) - Light Theme -->
+    <section id="philosophy" class="py-24 md:py-40 px-6 bg-var(--light-bg) relative">
+      <div class="max-w-4xl mx-auto">
+        <div class="space-y-12">
+          <div class="reveal-on-scroll slide-up w-20 md:w-24 h-2 bg-accent mb-12"></div>
+          <h2 class="reveal-on-scroll slide-up font-display text-4xl sm:text-5xl md:text-8xl font-black leading-[0.9] tracking-tighter uppercase italic text-var(--light-text)">
+            Who This Is For
+          </h2>
+          <div class="space-y-8 font-body text-lg md:text-xl text-neutral-600 leading-relaxed">
+            <p class="reveal-on-scroll slide-up">This is for you if:</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal-on-scroll slide-up">
+              <div class="card-lift-hover bg-white p-6 rounded-xl border border-neutral-200 shadow-md hover:border-accent">
+                <p class="font-bold">You actually want to get bigger and stronger, not just look busy in the gym</p>
+              </div>
+              <div class="card-lift-hover bg-white p-6 rounded-xl border border-neutral-200 shadow-md hover:border-accent">
+                <p class="font-bold">You're tired of conflicting advice from people who started lifting last Tuesday</p>
+              </div>
+              <div class="card-lift-hover bg-white p-6 rounded-xl border border-neutral-200 shadow-md hover:border-accent">
+                <p class="font-bold">You want to build a body that works now and doesn't fall apart at 40</p>
+              </div>
+              <div class="card-lift-hover bg-white p-6 rounded-xl border border-neutral-200 shadow-md hover:border-accent">
+                <p class="font-bold">You can handle some humor and don't need everything sanitized</p>
+              </div>
+            </div>
+            <p class="reveal-on-scroll slide-up">If lifting is just something you do between scrolling Instagram, this probably isn't for you. But if you're serious about progress and want to cut through the noise—you're in the right place.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<section id="subscribe" class="py-24 md:py-32 px-4 md:px-6 bg-[#2A2A2A] perspective-container">
+  <div class="reveal-on-scroll slide-up max-w-6xl mx-auto bg-accent rounded-[48px] md:rounded-[80px] p-10 md:p-32 text-center text-white relative shadow-2xl overflow-hidden group">
+    <div class="absolute inset-0 bg-[#1A1A1A] opacity-20"></div>
+    <div class="relative z-10 space-y-16">
+      <div class="space-y-8">
+        <span class="font-display text-[10px] md:text-[12px] font-black uppercase tracking-[0.6em] bg-white text-[#1A1A1A] px-6 py-2 rounded-full inline-block animate-bounce">JOIN THE PACK</span>
+
+        <div class="flex justify-center mb-8">
+          <img src="https://i.postimg.cc/CMNKvRr5/peak-week-white-(centered).png" alt="Peak Week Logo" class="h-20 md:h-24 w-auto brightness-110 pump" />
+        </div>
+        
+        <h2 class="font-display text-4xl sm:text-5xl md:text-8xl font-black tracking-tighter uppercase leading-[0.85] md:leading-[0.8] text-white">Get Peak Week</h2>
+        <p class="font-body text-lg md:text-3xl font-black max-w-2xl mx-auto text-white">Join lifters who get "the tea" every week. Free. Actionable. Entertaining.</p>
+      </div>
+
+      <form id="footer-form" class="flex flex-col md:flex-row gap-5 max-w-2xl mx-auto">
+        <input
+          type="email"
+          placeholder="Your email"
+          required
+          class="flex-grow bg-[#1A1A1A] border-[3px] md:border-4 border-white px-8 py-5 rounded-2xl md:rounded-3xl text-xl md:text-2xl focus:outline-none focus:ring-8 focus:ring-accent/20 transition-all shadow-xl font-bold text-white placeholder:text-neutral-400"
+        />
+        <button class="bg-white text-[#1A1A1A] font-display font-black px-10 md:px-16 py-5 rounded-2xl md:rounded-3xl hover:scale-105 active:scale-95 transition-all uppercase tracking-tighter text-xl md:text-2xl flex items-center justify-center gap-3 btn-power">
+          <span class="loading-barbell" style="border-top-color: #1A1A1A;"></span>
+          <span class="btn-text">Get Peak Week</span>
+        </button>
+      </form>
+      
+      <p class="text-[10px] md:text-[12px] font-bold text-white uppercase tracking-[0.4em] opacity-90">One email. Every week. Unsubscribe whenever.</p>
+      <div id="footer-success" class="hidden bg-white text-[#1A1A1A] p-4 rounded-2xl font-black text-sm animate-bounce">LOCKED IN. PREP FOR PEAK.</div>
+    </div>
+  </div>
+</section>
+
+<footer class="py-20 md:py-32 px-6 bg-[#2A2A2A] text-white">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-24 items-start">
+    <div class="space-y-8">
+      <a href="#" class="logo-hover inline-block">
+        <img src="https://i.postimg.cc/g25FSpPx/Peak-Week-White-invert-removebg-preview-(1).png" alt="Peak Week Logo" class="h-20 md:h-16 w-auto brightness-900" />
+      </a>
+      <p class="font-display text-[10px] md:text-[12px] font-black uppercase tracking-[0.1em]">The weekly newsletter for people who lift.</p>
+    </div>
+    
+    <div class="flex flex-col gap-6 font-black uppercase tracking-[0.3em] text-[10px] text-neutral-200">
+       
+       <a href="#inside" class="hover:text-accent transition-colors">What's Inside</a>
+       <a href="#about" class="hover:text-accent transition-colors">About Us</a>
+       <a href="#archive" class="hover:text-accent transition-colors">Archive</a>
+       <a href="#inside" class="hover:text-accent transition-colors">Privacy</a>
+       
+       <span class="mt-16 text-neutral-500 font-bold">© 2026 Peak Week</span>
+    </div>
+  </div>
+</footer>
+
+    <script>
+      // Header Scroll
+      const header = document.getElementById('main-header');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          header.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-sm', 'py-2', 'border-b', 'border-neutral-200');
+          header.classList.remove('bg-transparent', 'py-4');
+        } else {
+          header.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-sm', 'py-2', 'border-b', 'border-neutral-200');
+          header.classList.add('bg-transparent', 'py-4');
+        }
+      });
+
+      // Reveal Observer
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+
+      // Form Handling (with confetti simulation)
+      const handleForm = (formId, successId) => {
+        const form = document.getElementById(formId);
+        const success = document.getElementById(successId);
+        if (!form) return;
+
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          form.classList.add('is-loading');
+          
+          // Simulate submit
+          setTimeout(() => {
+            form.classList.remove('is-loading');
+            form.reset();
+            success.classList.remove('hidden');
+            // Simple confetti (add canvas or library for real)
+            console.log('Confetti burst!'); // Placeholder
+            setTimeout(() => success.classList.add('hidden'), 5000);
+          }, 1500);
+        });
+      };
+
+      handleForm('hero-form', 'hero-success');
+      handleForm('footer-form', 'footer-success');
+    </script>
+  </body>
+</html>
